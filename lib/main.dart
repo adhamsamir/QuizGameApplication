@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(MyApp());
+import 'package:home/quiz.dart';
+void main() {
+  runApp(
+    MaterialApp(
+      title: 'Named Routes Demo',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyApp(),
+        '/second': (context) => const QuizScreen(),
+      },
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget
-{
+{  
+    const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context)
   {
@@ -133,7 +146,7 @@ class MyApp extends StatelessWidget
 
               ElevatedButton
               (
-                onPressed: (){},
+                onPressed: (){ Navigator.pushNamed(context, '/second');},
                 child: const Text('PLAY'),
                 style: ElevatedButton.styleFrom
                 (
